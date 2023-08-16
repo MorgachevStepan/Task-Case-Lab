@@ -1,0 +1,10 @@
+SELECT surname
+FROM task_for_case_lab
+WHERE experience = (
+	SELECT MAX(experience)
+	FROM task_for_case_lab
+	WHERE experience < (
+		SELECT MAX(experience)
+		FROM task_for_case_lab
+	)
+);
